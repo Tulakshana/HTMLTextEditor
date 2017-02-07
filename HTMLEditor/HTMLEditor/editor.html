@@ -1,0 +1,181 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+        
+        .editor {
+            width: 100%;
+            height: 100%;
+            
+            overflow-y: scroll;
+            overflow-x: none;
+            -webkit-overflow-scrolling: touch;
+                
+            font-family: HelveticaNeue;
+            font-size: 16px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+                
+            line-height: 2;
+            
+            color: #252525;
+        }
+        
+        .issue {
+            position: relative;
+            text-decoration: underline;
+        }
+        
+        .issue WRSpan {
+            text-decoration: none;
+        }
+        
+        .concision {
+            -webkit-text-decoration-color: #f12e90;
+        }
+        
+        .clarity {
+            -webkit-text-decoration-color: #ec7600;
+        }
+        
+        .logic {
+            -webkit-text-decoration-color: #0082a9;
+        }
+        
+        .grammer {
+            -webkit-text-decoration-color: #6dbd46;
+        }
+        
+        .spelling {
+            -webkit-text-decoration-color: #d0021b;
+        }
+        
+        .co {
+            color: #f12e90;
+        }
+        
+        .cl {
+            color: #ec7600;
+        }
+        
+        .l {
+            color: #0082a9;
+        }
+        
+        .g {
+            color: #6dbd46;
+        }
+        
+        .s {
+            color: #d0021b;
+        }
+        
+        .issueCategory {
+            position: absolute;
+            top: -12px;
+            height: 14px;
+            /*z-index: -1;*/
+            white-space: nowrap;
+            width: 100%;
+            display: block;
+            /*overflow:hidden;*/
+
+            font-family: SFUIText;
+            font-size: 9px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            
+            text-decoration: none;
+            
+            -webkit-user-select: none;
+            
+            background-color: #ffffff;
+        }
+        
+        pre {
+            white-space: pre-wrap;
+        }
+        
+        </style>
+        <script>
+            
+            class WRSpan extends HTMLSpanElement {
+                
+            }
+            
+            function insertTextToEditor(content){
+                var elements = document.getElementsByClassName("editor");
+                elements[0].innerHTML = content;
+            }
+        
+            function textFromEditor(){
+                var elements = document.getElementsByClassName("editor");
+                return elements[0].innerHTML;
+            }
+        
+            function toggleEditMode(editable){
+                var elements = document.getElementsByClassName("editor");
+                elements[0].contentEditable = editable;
+                if(editable){
+                    elements[0].focus();
+                }
+            }
+        
+            function selectIssue(issueIndex,event){
+                event.stopPropagation();
+                
+                deselectAllIssues();
+            
+                var categoryElement = document.getElementById("ce" + issueIndex);
+                categoryElement.style.backgroundColor = "#f8e81c";
+            
+                var textElement = document.getElementById("te" + issueIndex);
+                textElement.style.backgroundColor = "#f8e81c";
+            
+                window.location = "wr://www.wr.tulakshana.com/issue?issueIndex=" + issueIndex;
+            }
+        
+            function deselectIssues(type){
+                var elements = document.getElementsByClassName(type);
+            
+                for (var i = 0; i < elements.length; i++){
+                    elements[i].style.backgroundColor = "transparent";
+                }
+            }
+        
+            function deselectAllIssues(){
+                deselectIssues("concision");
+                deselectIssues("clarity");
+                deselectIssues("logic");
+                deselectIssues("grammar");
+                deselectIssues("spelling");
+                deselectIssues("issueCategory");
+            }
+        
+            function removeAllIssues(){
+                var spans = document.getElementsByClassName("issue");
+            
+                while (spans.length > 0){
+                    for(var i=0; i<spans.length; i++) {
+                        var span = spans[i];
+                        var categoryElements = span.childNodes;
+                    
+                        for (var j=0; j<categoryElements.length; j++){
+                            var element = categoryElements[j];
+                            if (element.className == "issueCategory"){
+                                span.removeChild(element);
+                            }
+                        }
+                        span.outerHTML = span.innerHTML;
+                    }
+                    spans = document.getElementsByClassName("issue");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class='editor'></div>
+    </body>
+</html>

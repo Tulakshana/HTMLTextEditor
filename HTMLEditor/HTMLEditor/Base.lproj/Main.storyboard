@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HTMLEditor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hN-Me-AYp" customClass="HTMLEditor" customModule="HTMLEditor" customModuleProvider="target">
+                                <rect key="frame" x="20" y="104" width="374" height="612"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="aWi-qz-sGM"/>
+                                </connections>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfw-as-x55">
+                                <rect key="frame" x="28" y="28" width="117" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" id="RQE-Jt-eUF"/>
+                                    <constraint firstAttribute="height" constant="30" id="dv0-ov-5dp"/>
+                                </constraints>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="toggleEdit" destination="BYZ-38-t0r" eventType="touchUpInside" id="buu-4f-FS7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkU-TW-XJg">
+                                <rect key="frame" x="153" y="28" width="90" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1d0-Yz-lPP"/>
+                                    <constraint firstAttribute="width" constant="90" id="rk7-HT-lGa"/>
+                                </constraints>
+                                <state key="normal" title="Dummy text"/>
+                                <connections>
+                                    <action selector="addDummyContent" destination="BYZ-38-t0r" eventType="touchUpInside" id="CFn-wc-Kwf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UR-my-2C3">
+                                <rect key="frame" x="20" y="66" width="104" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="Ll6-xt-x1h"/>
+                                    <constraint firstAttribute="height" constant="30" id="tEi-CL-tMI"/>
+                                </constraints>
+                                <state key="normal" title="Remove issues"/>
+                                <connections>
+                                    <action selector="removeIssues" destination="BYZ-38-t0r" eventType="touchUpInside" id="c4y-OZ-8uR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4H0-QR-oqW">
+                                <rect key="frame" x="132" y="66" width="64" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="TlE-Tx-lpm"/>
+                                    <constraint firstAttribute="width" constant="64" id="zmn-7a-6Rp"/>
+                                </constraints>
+                                <state key="normal" title="Analyse"/>
+                                <connections>
+                                    <action selector="addDummyIssues" destination="BYZ-38-t0r" eventType="touchUpInside" id="GJk-Cg-95A"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4H0-QR-oqW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="112" id="8fv-fg-NhF"/>
+                            <constraint firstItem="0hN-Me-AYp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="84" id="JiE-7k-0ah"/>
+                            <constraint firstItem="bfw-as-x55" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="LIF-dZ-UIE"/>
+                            <constraint firstItem="xkU-TW-XJg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="NDb-Em-bfQ"/>
+                            <constraint firstItem="xkU-TW-XJg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="133" id="cTv-R5-VBj"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="0hN-Me-AYp" secondAttribute="leading" id="dUf-IY-AH8"/>
+                            <constraint firstItem="bfw-as-x55" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="ezg-ux-cv4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0hN-Me-AYp" secondAttribute="trailing" id="iV3-DC-ICF"/>
+                            <constraint firstItem="4H0-QR-oqW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="46" id="r6n-Vp-GuW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0hN-Me-AYp" secondAttribute="bottom" constant="20" id="sQe-gb-GgQ"/>
+                            <constraint firstItem="4UR-my-2C3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="46" id="slq-O1-LwW"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="4UR-my-2C3" secondAttribute="leading" id="vEu-6h-ZFT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnEdit" destination="bfw-as-x55" id="lf7-9A-2yF"/>
+                        <outlet property="editor" destination="0hN-Me-AYp" id="S52-Sq-aaS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="33.75" y="34.859154929577464"/>
+        </scene>
+    </scenes>
+</document>
